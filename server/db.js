@@ -73,21 +73,6 @@ mongoose.set('useFindAndModify', false);
 
 /**************** USER RELATED FUNCTIONS ****************/
 
-if(!mongoose.model('User').find()){
-    let firstUser = {
-        fullname: "Admin",
-        username: "Admin",
-        password: "Admin",
-        email: "Admin",
-        phone: "Admin",
-        title: "Admin",
-        date: Date.now(),
-        status: { text: "Ledig", class: "available" },
-        imageurl: "Admin"
-    }
-    newUser(firstUser)
-}
-
 async function allUsers() {
     // Return the users but ignore password field
     const users = mongoose.model('User').find().select(['-password'])

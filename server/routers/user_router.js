@@ -3,6 +3,23 @@ const router = express.Router();
 const db = require('../db');
 
 // new user
+router.get('/first-user', async (req, res) => {
+    let user = {
+        fullname: "Admin",
+        username: "Admin",
+        password: "Admin",
+        email: "Admin",
+        phone: "Admin",
+        title: "Admin",
+        date: Date.now(),
+        status: { text: "Ledig", class: "available" },
+        imageurl: "Admin",
+    }
+    let response = await db.newUser(user)
+    res.json({ msg: response })
+});
+
+// new user
 router.post('/new-user', async (req, res) => {
     let response = await db.newUser(req.body.user, req.body.id)
     res.json({ msg: response })
