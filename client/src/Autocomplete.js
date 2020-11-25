@@ -27,6 +27,7 @@ class Autocomplete extends Component {
 
     hideSuggestions() {
         this.setState({style: {display: "none"}})
+        document.getElementById("sInput").value = " "
     }
 
     render() {
@@ -43,7 +44,7 @@ class Autocomplete extends Component {
         return (
             <>
                 <div className="inputContainer">
-                    <input autoComplete="off" className="suggestionInput" type="text" placeholder="Ansvarlige for projektet" name="user" onChange={event => this.handleChange(event)}></input>
+                    <input autoComplete="off" id="sInput" className="suggestionInput" type="text" placeholder="Ansvarlige for projektet" name="user" onChange={event => this.handleChange(event)}></input>
                     <span className="selectedTeam">{selected}</span>
                 </div>
                 <div className="suggestionContainer">{results}</div>

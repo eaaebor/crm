@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../AuthService';
+import { Link } from "@reach/router";
 
 export const CustomerContext = React.createContext();
 
@@ -117,7 +118,7 @@ class CustomerProvider extends Component {
                             <div className="customerProfile">
                                 <h1 className="customerTitle linebreak">Kundeoplysninger</h1>
                                 <div className="customerDetails">
-                                    <span className="customerLabel">Virksomhed</span><span>{customer.company}</span>
+                                    <span className="customerLabel">Virksomhed</span><span><Link to={"/customer/" + customer._id}>{customer.company}</Link></span>
                                     <span className="customerLabel">CVR</span><span>{customer.cvr}</span>
                                     <span className="customerLabel">Adresse</span><span>{customer.address}</span>
                                     <span className="customerLabel">Kontaktperson</span><span>{customer.contactpersonname}</span>

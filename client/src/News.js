@@ -15,8 +15,10 @@ class News extends Component {
     }
 
     findUser(id) {
-        let user =  this.context.state.users.find(u => u._id === id)
-        return user.fullname
+        let user = this.context.state.users.find(u => u._id === id)
+        if (user !== undefined) {
+            return user.fullname
+        }
     }
 
 
@@ -33,8 +35,8 @@ class News extends Component {
                                 <div className="news">
                                     <span>{this.findUser(u.byuser)}</span>
                                     <span> {u.text}</span>
-                                    <span>{u.about}</span> 
-                                    <span className="newsDate">{moment(parseInt(u.date)).fromNow()}</span> 
+                                    <span>{u.about}</span>
+                                    <span className="newsDate">{moment(parseInt(u.date)).fromNow()}</span>
                                 </div>
                             )}
                         </>

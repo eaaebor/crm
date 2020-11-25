@@ -165,16 +165,15 @@ async function editUser(object, byuser, date) {
     let users = mongoose.model('User')
     try {
 
-        // Find the customer so we can display the name
+        // Find the user so we can display the name
         const u = mongoose.model('User').find()
-        let uN = await u.findOne({ _id: byuser })
-        let uNN = await u.findOne({ _id: object.id })
+        let uN = await u.findOne({ _id: object.id })
 
         await users.findByIdAndUpdate(
             { _id: object.id },
             { [object.name]: object.newValue }
         );
-        await updateNews(uN.fullname, "Har opdateret profilen: ", date, uNN.fullname)
+        await updateNews(uN._id, "Har opdateret profilen: ", date, uN.fullname)
         return 200 // Success
     } catch (error) {
         console.error(error);

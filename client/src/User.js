@@ -75,8 +75,7 @@ class User extends Component {
         event.preventDefault()
         // Load the updated customers through context
         await this.context.updateUser(this.state.updateValue)
-        await this.context.getUsers()
-        await this.context.getUser(this.props.username)
+        await this.fetchNewData()
         // Hide the input field
         this.setState({
             style: { display: "none" }

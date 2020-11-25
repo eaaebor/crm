@@ -207,6 +207,7 @@ nav a li i {
   text-decoration: none;
   font-weight: 500;
   color: #616060;
+  
 }
 
 .userTitle {
@@ -221,10 +222,7 @@ nav a li i {
   text-align: right;
   padding-right: 60px;
   font-weight: 300;
-}
-
-.userContactEmail {
-  font-weight: 300;
+  color: #1295CF;
 }
 
 /* Single user profile */
