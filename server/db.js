@@ -173,7 +173,7 @@ async function editUser(object, byuser, date) {
             { _id: object.id },
             { [object.name]: object.newValue }
         );
-        await updateNews(uN._id, "Har opdateret profilen: ", date, uN.fullname)
+        await updateNews(byuser, "Har opdateret profilen: ", date, uN.fullname)
         return 200 // Success
     } catch (error) {
         console.error(error);
