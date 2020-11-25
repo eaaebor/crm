@@ -19,7 +19,6 @@ app.use(express.static('../client/build'));
 let openPaths = [
     { url: '/api/user/new-user', methods: ['POST'] },
     { url: '/api/user/authenticate', methods: ['POST'] },
-    { url: '/api/user/first-user', methods: ['GET'] },
     { url: /^\/(?!api\/).*/, methods: ['GET']}
 ];
 
